@@ -26,6 +26,7 @@ pipeline {
                     
                     script {
                         docker.build('petclinic')
+                        docker.push('techdemo.jfrog.io/default-docker-virtual/techdemo/petclinic')
                     }
                 }
             }
