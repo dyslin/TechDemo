@@ -25,8 +25,13 @@ pipeline {
                     junit '**/target/surefire-reports/TEST-*.xml'
                     
                     script {
-                        docker.build('petclinic')
-                        docker.push('techdemo.jfrog.io/default-docker-virtual/techdemo/petclinic')
+                        docker.withRegistry('https://techdemo.jfrog.io/default-docker-virtual/techdemo/petclinic', 'dyslin@gmail.com') {
+
+                            def customImage = docker.build('petclinic')
+
+                            /* Push the container to the custom Registry */
+                            customImage.push()
+                        }
                     }
                 }
             }
