@@ -27,7 +27,7 @@ pipeline {
                     script {
                         docker.withRegistry('https://techdemo.jfrog.io/petclinic-docker-local/', 'eb48d8e6-9b8e-45af-9239-03278968fbed') {
 
-                            def customImage = docker.build('petclinic')
+                            def customImage = docker.build('petclinic/petclinic')
 
                             /* Push the container to the custom Registry */
                             customImage.push()
