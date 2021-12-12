@@ -42,4 +42,14 @@ The build section calls the Maven wrapper which was downloaded from Git.
 
 If success, it will archive junit test results.
 
-If will create then create docket image calls PetClinic 
+If will create then create docket image calls PetClinic and upload to JFrog repository, 
+
+## How to load and run the docker image
+Step 1: Login to jfrog artifactory, https://techdemo.jfrog.io/
+- Run the command 'docker login techdemo.jfrog.io'
+
+Step 2: Pull the docker image
+- docker pull techdemo.jfrog.io/petclinic/petclinic
+
+Step 3: Run the image
+- docker run -d -p 9000:8080 techdemo.jfrog.io/petclinic/petclinic
